@@ -1,6 +1,6 @@
 let token = []
-let lookout = 0
 let storage = []
+let lookout = 0
 let check = true
 
 let lexer = function(input)
