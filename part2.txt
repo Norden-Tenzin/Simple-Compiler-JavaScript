@@ -1,0 +1,23 @@
+
+1) 	No, it just wont parse because the grammar is ambiguious. 
+	Parser created in bison has exactly one way to parse any input.
+
+2)	<Program> ::= <Expr>.
+	<Expr> ::= <Expr> || <X>
+			| (<Expr>) || <X>
+			| <Y> ^ <X>
+			| <Y>
+
+	<X> ::= <Const> | (<Expr>)
+
+	<Y> ::= <Y> ^ <X>
+			| (<Y>) ^ <X>
+			| <Z> && <X>
+			| <z>
+
+	<Z> ::= <Z> && <X>
+			| (<Z>) && <X>
+			| ~<z>
+			| <Const>
+
+	<Const> ::= F | T
